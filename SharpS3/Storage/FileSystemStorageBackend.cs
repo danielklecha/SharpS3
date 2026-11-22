@@ -295,6 +295,12 @@ public class FileSystemStorageBackend : IS3StorageBackend
         "LPT1", "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", "LPT9"
     };
 
+    private static readonly char[] _InvalidFileNameChars = Path.GetInvalidFileNameChars()
+        .Union(['\"', '<', '>', '|', ':', '*', '?', '\\', '/'])
+        .Union(Enumerable.Range(0, 32).Select(i => (char)i))
+        .Distinct()
+        .ToArray();
+
     /// <summary>
     /// Checks whether the specified file or bucket name matches a Windows-reserved device name.
     /// </summary>
@@ -314,7 +320,7 @@ public class FileSystemStorageBackend : IS3StorageBackend
     {
         if (string.IsNullOrWhiteSpace(uploadId) ||
             uploadId.Length > 128 ||
-            uploadId.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0 ||
+            uploadId.IndexOfAny(_InvalidFileNameChars) >= 0 ||
             uploadId.Contains('/') || uploadId.Contains('\\') ||
             uploadId.Contains(".."))
         {
@@ -328,7 +334,7 @@ public class FileSystemStorageBackend : IS3StorageBackend
     internal string GetStagingDirectory(string uploadId)
     {
         ValidateUploadId(uploadId);
-        string stagingDir = Path.GetFullPath(Path.Combine(_UploadsDirectory, uploadId));
+        string stagingDir = Path.GetFullPath(Path.Combine(_UploadsDirectory, uploadId.Trim()));
         string uploadsWithSep = _UploadsDirectory + Path.DirectorySeparatorChar;
         if (!stagingDir.StartsWith(uploadsWithSep, StringComparison.OrdinalIgnoreCase) ||
             stagingDir.Length <= uploadsWithSep.Length)
@@ -347,7 +353,7 @@ public class FileSystemStorageBackend : IS3StorageBackend
             bucket.StartsWith(".") ||
             bucket.EndsWith(".") ||
             bucket.Contains('/') || bucket.Contains('\\') ||
-            bucket.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0 ||
+            bucket.IndexOfAny(_InvalidFileNameChars) >= 0 ||
             IsWindowsReservedName(bucket))
         {
             throw new S3Exception(new Error(ErrorCode.InvalidBucketName));
