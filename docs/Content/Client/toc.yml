@@ -1,0 +1,84 @@
+- name: Operations
+  href: Operations.md
+- name: Configuration & Best Practices
+  href: ConfigurationAndBestPractices.md
+- name: Request Validation & Error Handling
+  href: Validation.md
+- name: Presigned URLs
+  href: PresignedUrls.md
+- name: Native AOT & Trimming
+  href: NativeAOT.md
+- name: Standard Operations Examples
+  items:
+    - name: List-Buckets
+      href: ListBuckets.md
+    - name: Create-Bucket
+      href: CreateBucket.md
+    - name: Delete-Bucket
+      href: DeleteBucket.md
+    - name: Bucket-Exists
+      href: BucketExists.md
+    - name: Get-Bucket-Location
+      href: GetBucketLocation.md
+    - name: Get-Bucket-Acl
+      href: GetBucketAcl.md
+    - name: Set-Bucket-Acl
+      href: SetBucketAcl.md
+    - name: Get-Bucket-Tags
+      href: GetBucketTags.md
+    - name: Set-Bucket-Tags
+      href: SetBucketTags.md
+    - name: Delete-Bucket-Tags
+      href: DeleteBucketTags.md
+    - name: Get-Bucket-Versioning
+      href: GetBucketVersioning.md
+    - name: Set-Bucket-Versioning
+      href: SetBucketVersioning.md
+    - name: Get-Bucket-Website
+      href: GetBucketWebsite.md
+    - name: Set-Bucket-Website
+      href: SetBucketWebsite.md
+    - name: Delete-Bucket-Website
+      href: DeleteBucketWebsite.md
+    - name: Get-Bucket-Logging
+      href: GetBucketLogging.md
+    - name: Set-Bucket-Logging
+      href: SetBucketLogging.md
+    - name: Get-Object
+      href: GetObject.md
+    - name: Put-Object
+      href: PutObject.md
+    - name: Head-Object
+      href: HeadObject.md
+    - name: Object-Exists
+      href: ObjectExists.md
+    - name: Delete-Object
+      href: DeleteObject.md
+    - name: Delete-Objects
+      href: DeleteObjects.md
+    - name: Copy-Object
+      href: CopyObject.md
+    - name: List-Objects-V2
+      href: ListObjectsV2.md
+    - name: List-All-Objects
+      href: ListAllObjects.md
+    - name: Get-Object-Tags
+      href: GetObjectTags.md
+    - name: Set-Object-Tags
+      href: SetObjectTags.md
+    - name: Delete-Object-Tags
+      href: DeleteObjectTags.md
+    - name: Upload-File
+      href: UploadFile.md
+    - name: Download-File
+      href: DownloadFile.md
+    - name: Generate-Presigned-Url
+      href: GeneratePresignedUrl.md
+    - name: Initiate-Multipart-Upload
+      href: InitiateMultipartUpload.md
+    - name: Upload-Part
+      href: UploadPart.md
+    - name: Complete-Multipart-Upload
+      href: CompleteMultipartUpload.md
+    - name: Abort-Multipart-Upload
+      href: AbortMultipartUpload.md

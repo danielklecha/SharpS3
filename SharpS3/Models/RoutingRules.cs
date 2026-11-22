@@ -1,0 +1,55 @@
+namespace SharpS3.Models
+{
+    using System.Collections.Generic;
+    using System.Xml.Serialization;
+
+    /// <summary>
+    /// Routing rules for a bucket's website configuration.
+    /// </summary>
+    [XmlRoot(ElementName = "RoutingRules", IsNullable = true)]
+    public class RoutingRules
+    {
+        #region Public-Members
+
+        /// <summary>
+        /// List of routing rules.
+        /// </summary>
+        [XmlElement(ElementName = "RoutingRule", IsNullable = true)]
+        public List<RoutingRule> Rules { get; set; } = new List<RoutingRule>();
+
+        #endregion
+
+        #region Private-Members
+
+        #endregion
+
+        #region Constructors-and-Factories
+
+        /// <summary>
+        /// Instantiate.
+        /// </summary>
+        public RoutingRules()
+        {
+
+        }
+
+        /// <summary>
+        /// Instantiate.
+        /// </summary>
+        /// <param name="rules">Rules.</param>
+        public RoutingRules(List<RoutingRule> rules)
+        {
+            if (rules != null) Rules = rules;
+        }
+
+        #endregion
+
+        #region Public-Methods
+
+        #endregion
+
+        #region Private-Methods
+
+        #endregion
+    }
+}

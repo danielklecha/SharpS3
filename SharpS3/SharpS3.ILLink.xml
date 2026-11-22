@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<linker>
+  <assembly fullname="SharpS3">
+    <type fullname="SharpS3.Serialization.S3XmlGeneratedSerializer" preserve="all" />
+    <type fullname="SharpS3.Serialization.S3XmlEnumHelper" preserve="all" />
+    <type fullname="SharpS3.Serialization.S3XmlEncodingHelper" preserve="all" />
+  </assembly>
+</linker>

@@ -1,0 +1,176 @@
+namespace SharpS3.Models
+{
+    using System;
+    using System.Xml.Serialization;
+
+    /// <summary>
+    /// Result of an UploadPartCopy operation (PUT with partNumber, uploadId, and the x-amz-copy-source header).
+    /// Returned by the Object.UploadPartCopy callback and serialized as the response body.
+    /// </summary>
+    [XmlRoot(ElementName = "CopyPartResult")]
+    public class CopyPartResult
+    {
+        #region Public-Members
+
+        /// <summary>
+        /// Timestamp from the last modification of the part, in UTC.
+        /// Default is the time of instantiation.
+        /// </summary>
+        [XmlElement(ElementName = "LastModified")]
+        public DateTime LastModified
+        {
+            get => _LastModified;
+            set => _LastModified = DateTime.SpecifyKind(value, DateTimeKind.Utc);
+        }
+
+        /// <summary>
+        /// ETag of the part.  Surrounding double quotes are added if not supplied.
+        /// Clients use this value when completing the multipart upload.
+        /// </summary>
+        [XmlElement(ElementName = "ETag")]
+        public string ETag
+        {
+            get => _ETag;
+            set => _ETag = ETagHelper.FormatETag(value)!;
+        }
+
+        /// <summary>
+        /// CRC32 checksum, base64-encoded.  Omitted when null or empty (the default).
+        /// </summary>
+        [XmlElement(ElementName = "ChecksumCRC32")]
+        public string ChecksumCRC32 { get; set; } = null!;
+
+        /// <summary>
+        /// CRC32C checksum, base64-encoded.  Omitted when null or empty (the default).
+        /// </summary>
+        [XmlElement(ElementName = "ChecksumCRC32C")]
+        public string ChecksumCRC32C { get; set; } = null!;
+
+        /// <summary>
+        /// CRC64NVME checksum, base64-encoded.  Omitted when null or empty (the default).
+        /// </summary>
+        [XmlElement(ElementName = "ChecksumCRC64NVME")]
+        public string ChecksumCRC64NVME { get; set; } = null!;
+
+        /// <summary>
+        /// SHA1 checksum, base64-encoded.  Omitted when null or empty (the default).
+        /// </summary>
+        [XmlElement(ElementName = "ChecksumSHA1")]
+        public string ChecksumSHA1 { get; set; } = null!;
+
+        /// <summary>
+        /// SHA256 checksum, base64-encoded.  Omitted when null or empty (the default).
+        /// </summary>
+        [XmlElement(ElementName = "ChecksumSHA256")]
+        public string ChecksumSHA256 { get; set; } = null!;
+
+        /// <summary>
+        /// Checksum type, for example FULL_OBJECT or COMPOSITE.  Omitted when null or empty (the default).
+        /// </summary>
+        [XmlElement(ElementName = "ChecksumType")]
+        public string ChecksumType { get; set; } = null!;
+
+        #endregion
+
+        #region Private-Members
+
+        private string _ETag = null!;
+        private DateTime _LastModified = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc);
+
+        #endregion
+
+        #region Constructors-and-Factories
+
+        /// <summary>
+        /// Instantiate.
+        /// </summary>
+        public CopyPartResult()
+        {
+
+        }
+
+        /// <summary>
+        /// Instantiate.
+        /// </summary>
+        /// <param name="eTag">ETag of the part.</param>
+        /// <param name="lastModified">Last modified timestamp of the part.</param>
+        public CopyPartResult(string eTag, DateTime lastModified)
+        {
+            ETag = eTag;
+            LastModified = lastModified;
+        }
+
+        #endregion
+
+        #region Public-Methods
+
+        /// <summary>
+        /// Helper method for XML serialization.
+        /// </summary>
+        /// <returns>Boolean.</returns>
+        public bool ShouldSerializeETag()
+        {
+            return !String.IsNullOrEmpty(ETag);
+        }
+
+        /// <summary>
+        /// Helper method for XML serialization.
+        /// </summary>
+        /// <returns>Boolean.</returns>
+        public bool ShouldSerializeChecksumCRC32()
+        {
+            return !String.IsNullOrEmpty(ChecksumCRC32);
+        }
+
+        /// <summary>
+        /// Helper method for XML serialization.
+        /// </summary>
+        /// <returns>Boolean.</returns>
+        public bool ShouldSerializeChecksumCRC32C()
+        {
+            return !String.IsNullOrEmpty(ChecksumCRC32C);
+        }
+
+        /// <summary>
+        /// Helper method for XML serialization.
+        /// </summary>
+        /// <returns>Boolean.</returns>
+        public bool ShouldSerializeChecksumCRC64NVME()
+        {
+            return !String.IsNullOrEmpty(ChecksumCRC64NVME);
+        }
+
+        /// <summary>
+        /// Helper method for XML serialization.
+        /// </summary>
+        /// <returns>Boolean.</returns>
+        public bool ShouldSerializeChecksumSHA1()
+        {
+            return !String.IsNullOrEmpty(ChecksumSHA1);
+        }
+
+        /// <summary>
+        /// Helper method for XML serialization.
+        /// </summary>
+        /// <returns>Boolean.</returns>
+        public bool ShouldSerializeChecksumSHA256()
+        {
+            return !String.IsNullOrEmpty(ChecksumSHA256);
+        }
+
+        /// <summary>
+        /// Helper method for XML serialization.
+        /// </summary>
+        /// <returns>Boolean.</returns>
+        public bool ShouldSerializeChecksumType()
+        {
+            return !String.IsNullOrEmpty(ChecksumType);
+        }
+
+        #endregion
+
+        #region Private-Methods
+
+        #endregion
+    }
+}

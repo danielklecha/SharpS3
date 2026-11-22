@@ -1,0 +1,174 @@
+namespace SharpS3.Models
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Xml.Serialization;
+
+    /// <summary>
+    /// List multipart uploads.
+    /// </summary>
+    [XmlRoot(ElementName = "ListMultipartUploadsResult")]
+    public class ListMultipartUploadsResult
+    {
+        #region Public-Members
+
+        /// <summary>
+        /// Bucket.
+        /// </summary>
+        [XmlElement(ElementName = "Bucket", IsNullable = false)]
+        public string Bucket { get; set; } = null!;
+
+        /// <summary>
+        /// Key marker.
+        /// </summary>
+        [XmlElement(ElementName = "KeyMarker")]
+        public string KeyMarker { get; set; } = null!;
+
+        /// <summary>
+        /// Upload ID marker.
+        /// </summary>
+        [XmlElement(ElementName = "UploadIdMarker")]
+        public string UploadIdMarker { get; set; } = null!;
+
+        /// <summary>
+        /// Next key marker.
+        /// </summary>
+        [XmlElement(ElementName = "NextKeyMarker")]
+        public string NextKeyMarker { get; set; } = null!;
+
+        /// <summary>
+        /// Prefix.
+        /// </summary>
+        [XmlElement(ElementName = "Prefix")]
+        public string Prefix { get; set; } = null!;
+
+        /// <summary>
+        /// Delimiter.
+        /// </summary>
+        [XmlElement(ElementName = "Delimiter")]
+        public string Delimiter { get; set; } = null!;
+
+        /// <summary>
+        /// Next upload ID marker.
+        /// </summary>
+        [XmlElement(ElementName = "NextUploadIdMarker")]
+        public string NextUploadIdMarker { get; set; } = null!;
+
+        /// <summary>
+        /// Maximum number of uploads returned.  Minimum is 0, which Amazon S3 accepts.
+        /// </summary>
+        [XmlElement(ElementName = "MaxUploads", IsNullable = false)]
+        public int MaxUploads
+        {
+            get
+            {
+                return _MaxUploads;
+            }
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException(nameof(MaxUploads));
+                _MaxUploads = value;
+            }
+        }
+
+        /// <summary>
+        /// Flag indicating if the results are truncated.
+        /// </summary>
+        [XmlElement(ElementName = "IsTruncated", IsNullable = false)]
+        public bool IsTruncated { get; set; } = false;
+
+        /// <summary>
+        /// Uploads.
+        /// </summary>
+        [XmlElement(ElementName = "Upload")]
+        public List<Upload> Uploads { get; set; } = new List<Upload>();
+
+        /// <summary>
+        /// Common prefixes.
+        /// </summary>
+        [XmlElement(ElementName = "CommonPrefixes")]
+        public List<CommonPrefixes> CommonPrefixes { get; set; } = new List<CommonPrefixes>();
+
+        /// <summary>
+        /// Encoding type used to encode object key names in the XML response.
+        /// Valid value is "url" for URL encoding.
+        /// </summary>
+        [XmlElement(ElementName = "EncodingType")]
+        public string EncodingType { get; set; } = null!;
+
+        #endregion
+
+        #region Private-Members
+
+        private int _MaxUploads = 1000;
+
+        #endregion
+
+        #region Constructors-and-Factories
+
+        /// <summary>
+        /// Instantiate.
+        /// </summary>
+        public ListMultipartUploadsResult()
+        {
+
+        }
+
+        /// <summary>
+        /// Instantiate.
+        /// </summary>
+        /// <param name="bucket">Bucket.</param>
+        /// <param name="key">Key.</param>
+        /// <param name="uploadId">Upload ID.</param>
+        public ListMultipartUploadsResult(string bucket, string key, string uploadId)
+        {
+            if (String.IsNullOrEmpty(bucket))
+                throw new ArgumentNullException(nameof(bucket));
+            if (String.IsNullOrEmpty(key))
+                throw new ArgumentNullException(nameof(key));
+            if (String.IsNullOrEmpty(uploadId))
+                throw new ArgumentNullException(nameof(uploadId));
+            Bucket = bucket;
+            KeyMarker = key;
+            UploadIdMarker = uploadId;
+        }
+
+        #endregion
+
+        #region Public-Methods
+
+        /// <summary>
+        /// Helper method for XML serialization.
+        /// </summary>
+        /// <returns>Boolean.</returns>
+        public bool ShouldSerializeUploads()
+        {
+            return Uploads != null && Uploads.Count > 0;
+        }
+
+        /// <summary>
+        /// Helper method for XML serialization.
+        /// </summary>
+        /// <returns>Boolean.</returns>
+        public bool ShouldSerializeCommonPrefixes()
+        {
+            return CommonPrefixes != null && CommonPrefixes.Count > 0;
+        }
+
+        /// <summary>
+        /// Helper method for XML serialization.
+        /// </summary>
+        /// <returns>Boolean.</returns>
+        public bool ShouldSerializeEncodingType()
+        {
+            return !String.IsNullOrEmpty(EncodingType);
+        }
+
+        #endregion
+
+        #region Private-Methods
+
+        #endregion
+    }
+}

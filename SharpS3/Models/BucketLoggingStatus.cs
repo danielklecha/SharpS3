@@ -1,0 +1,54 @@
+namespace SharpS3.Models
+{
+    using System.Xml.Serialization;
+
+    /// <summary>
+    /// Logging status for a bucket.
+    /// </summary>
+    [XmlRoot(ElementName = "BucketLoggingStatus")]
+    public class BucketLoggingStatus
+    {
+        #region Public-Members
+
+        /// <summary>
+        /// Logging configuration for a bucket.
+        /// </summary>
+        [XmlElement(ElementName = "LoggingEnabled", IsNullable = true)]
+        public LoggingEnabled Enabled { get; set; } = new LoggingEnabled();
+
+        #endregion
+
+        #region Private-Members
+
+        #endregion
+
+        #region Constructors-and-Factories
+
+        /// <summary>
+        /// Instantiate.
+        /// </summary>
+        public BucketLoggingStatus()
+        {
+
+        }
+
+        /// <summary>
+        /// Instantiate.
+        /// </summary>
+        /// <param name="loggingEnabled">Logging enabled.</param>
+        public BucketLoggingStatus(LoggingEnabled loggingEnabled)
+        {
+            Enabled = loggingEnabled;
+        }
+
+        #endregion
+
+        #region Public-Methods
+
+        #endregion
+
+        #region Private-Methods
+
+        #endregion
+    }
+}

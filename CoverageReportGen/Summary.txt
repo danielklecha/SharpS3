@@ -1,0 +1,129 @@
+Summary
+  Generated on: 22.11.2026 - 20:28:17
+  Coverage date: 22.11.2026 - 19:38:45
+  Parser: Cobertura
+  Assemblies: 2
+  Classes: 105
+  Files: 102
+  Line coverage: 10.8%
+  Covered lines: 988
+  Uncovered lines: 8085
+  Coverable lines: 9073
+  Total lines: 19236
+  Branch coverage: 9.2% (366 of 3964)
+  Covered branches: 366
+  Total branches: 3964
+  Method coverage: 1.4% (18 of 1270)
+  Full method coverage: 1.4% (18 of 1270)
+  Covered methods: 18
+  Fully covered methods: 18
+  Total methods: 1270
+
+SharpS3                                                   0%
+  SharpS3.Auth.AwsChunkSigner                             0%
+  SharpS3.Auth.AwsSignatureV2                             0%
+  SharpS3.Auth.AwsSignatureV4                             0%
+  SharpS3.Auth.ConstantTimeHelper                         0%
+  SharpS3.Dispatch.S3RequestDispatcher                    0%
+  SharpS3.Exceptions.S3Exception                          0%
+  SharpS3.Exceptions.SharpS3ClientException               0%
+  SharpS3.Models.AccessControlList                        0%
+  SharpS3.Models.AccessControlPolicy                      0%
+  SharpS3.Models.AmazonCustomerByEmail                    0%
+  SharpS3.Models.Bucket                                   0%
+  SharpS3.Models.BucketLoggingStatus                      0%
+  SharpS3.Models.Buckets                                  0%
+  SharpS3.Models.ByteRange                                0%
+  SharpS3.Models.CanonicalUser                            0%
+  SharpS3.Models.CommonPrefixes                           0%
+  SharpS3.Models.CompleteMultipartUpload                  0%
+  SharpS3.Models.CompleteMultipartUploadResult            0%
+  SharpS3.Models.Condition                                0%
+  SharpS3.Models.CopyObjectResult                         0%
+  SharpS3.Models.CopyPartResult                           0%
+  SharpS3.Models.CreateBucketConfiguration                0%
+  SharpS3.Models.CsvInputSerialization                    0%
+  SharpS3.Models.CsvOutputSerialization                   0%
+  SharpS3.Models.Deleted                                  0%
+  SharpS3.Models.DeleteError                              0%
+  SharpS3.Models.DeleteErrorCollection                    0%
+  SharpS3.Models.DeleteMarker                             0%
+  SharpS3.Models.DeleteMultiple                           0%
+  SharpS3.Models.DeleteResult                             0%
+  SharpS3.Models.Error                                    0%
+  SharpS3.Models.ErrorDocument                            0%
+  SharpS3.Models.ETagHelper                               0%
+  SharpS3.Models.GlacierJobParameters                     0%
+  SharpS3.Models.Grant                                    0%
+  SharpS3.Models.Grantee                                  0%
+  SharpS3.Models.Group                                    0%
+  SharpS3.Models.IndexDocument                            0%
+  SharpS3.Models.InitiateMultipartUploadResult            0%
+  SharpS3.Models.InputSerialization                       0%
+  SharpS3.Models.JsonInputSerialization                   0%
+  SharpS3.Models.JsonOutputSerialization                  0%
+  SharpS3.Models.LegalHold                                0%
+  SharpS3.Models.ListAllMyBucketsResult                   0%
+  SharpS3.Models.ListBucketResult                         0%
+  SharpS3.Models.ListMultipartUploadsResult               0%
+  SharpS3.Models.ListPartsResult                          0%
+  SharpS3.Models.ListVersionsEntryCollection              0%
+  SharpS3.Models.ListVersionsResult                       0%
+  SharpS3.Models.LocationConstraint                       0%
+  SharpS3.Models.LoggingEnabled                           0%
+  SharpS3.Models.LoggingSettings                          0%
+  SharpS3.Models.Object                                   0%
+  SharpS3.Models.ObjectMetadata                           0%
+  SharpS3.Models.ObjectMetadataResponse                   0%
+  SharpS3.Models.ObjectVersion                            0%
+  SharpS3.Models.OperationLimitsSettings                  0%
+  SharpS3.Models.OutputSerialization                      0%
+  SharpS3.Models.Owner                                    0%
+  SharpS3.Models.ParquetInputSerialization                0%
+  SharpS3.Models.Part                                     0%
+  SharpS3.Models.Redirect                                 0%
+  SharpS3.Models.RedirectAllRequestsTo                    0%
+  SharpS3.Models.RequestProgress                          0%
+  SharpS3.Models.RestoreObjectResult                      0%
+  SharpS3.Models.RestoreRequest                           0%
+  SharpS3.Models.RestoreStatus                            0%
+  SharpS3.Models.Retention                                0%
+  SharpS3.Models.RoutingRule                              0%
+  SharpS3.Models.RoutingRules                             0%
+  SharpS3.Models.S3ObjectResponse                         0%
+  SharpS3.Models.ScanRange                                0%
+  SharpS3.Models.SelectObjectContentRequest               0%
+  SharpS3.Models.Tag                                      0%
+  SharpS3.Models.Tagging                                  0%
+  SharpS3.Models.TagSet                                   0%
+  SharpS3.Models.TargetGrants                             0%
+  SharpS3.Models.Upload                                   0%
+  SharpS3.Models.UploadPartResult                         0%
+  SharpS3.Models.VersionedEntity                          0%
+  SharpS3.Models.VersioningConfiguration                  0%
+  SharpS3.Models.WebsiteConfiguration                     0%
+  SharpS3.Protocol.ConditionalHeaderParser                0%
+  SharpS3.Protocol.Constants                              0%
+  SharpS3.Protocol.S3Request                              0%
+  SharpS3.Protocol.S3ServerResponse                       0%
+  SharpS3.RequestTelemetry                                0%
+  SharpS3.S3ServerTelemetry                               0%
+  SharpS3.S3ServerTelemetrySettings                       0%
+  SharpS3.Serialization.ResponseSerializationContext      0%
+  SharpS3.Serialization.SerializationHelper               0%
+  SharpS3.SharpS3Client                                   0%
+  SharpS3.SharpS3ClientOptions                            0%
+  SharpS3.SharpS3Server                                   0%
+  SharpS3.SharpS3Settings                                 0%
+  SharpS3.Storage.CallbackStorageBackend                  0%
+  SharpS3.Storage.FileSystemStorageBackend                0%
+  SharpS3.Storage.InMemoryStorageBackend                  0%
+  SharpS3.Storage.S3ObjectPayload                         0%
+  SharpS3.Streams.AwsChunkedDecodingStream                0%
+  SharpS3.Streams.BoundedReadStream                       0%
+  SharpS3.Streams.Sha256PayloadVerifyingStream            0%
+  SharpS3.Streams.SubStream                               0%
+  SharpS3.TelemetryStage                                  0%
+
+SharpS3.Generators                                      100%
+  SharpS3.Generators.XmlSerializerSourceGenerator       100%

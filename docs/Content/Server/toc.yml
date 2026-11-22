@@ -1,0 +1,10 @@
+- name: Server Overview
+  href: index.md
+- name: Configuration & Settings
+  href: Configuration.md
+- name: ASP.NET Core Integration
+  href: AspNetCoreIntegration.md
+- name: Authentication & SigV4
+  href: Authentication.md
+- name: Telemetry & Observability
+  href: Telemetry.md

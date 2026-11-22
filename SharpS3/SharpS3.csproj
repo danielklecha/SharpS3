@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net10.0</TargetFrameworks>
+    <Version>1.0.0</Version>
+    <Authors>Daniel Klecha</Authors>
+    <Description>Transport-agnostic Amazon S3 protocol and serialization engine for .NET</Description>
+    <PackageTags>aws;s3;storage;cloud;protocol;server;client</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon256.png</PackageIcon>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/danielklecha/SharpS3</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/danielklecha/SharpS3</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">
+    <IsAotCompatible>true</IsAotCompatible>
+    <IsTrimmable>true</IsTrimmable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="SharpS3.ILLink.xml">
+      <LogicalName>ILLink.Descriptors.xml</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">
+    <TrimmerRootDescriptor Include="SharpS3.ILLink.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\icon256.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="SharpS3.Auth" />
+    <Using Include="SharpS3.Exceptions" />
+    <Using Include="SharpS3.Models" />
+    <Using Include="SharpS3.Protocol" />
+    <Using Include="SharpS3.Serialization" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SignAssembly)' != 'true'">
+    <InternalsVisibleTo Include="SharpS3.Tests.Unit" />
+    <InternalsVisibleTo Include="SharpS3.Tests.Integration" />
+    <InternalsVisibleTo Include="SharpS3.Generators.Tests.Unit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SharpS3.Generators\SharpS3.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+</Project>

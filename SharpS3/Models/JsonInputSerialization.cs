@@ -1,0 +1,46 @@
+namespace SharpS3.Models
+{
+    using System;
+    using System.Xml.Serialization;
+
+    /// <summary>
+    /// JSON input serialization.
+    /// </summary>
+    [XmlRoot(ElementName = "JSON")]
+    public class JsonInputSerialization
+    {
+        #region Public-Members
+
+        /// <summary>
+        /// Allow quoted record delimiter.
+        /// </summary>
+        [XmlElement(ElementName = "Type")]
+        public JsonTypeEnum Type { get; set; } = JsonTypeEnum.DOCUMENT;
+
+        #endregion
+
+        #region Private-Members
+
+        #endregion
+
+        #region Constructors-and-Factories
+
+        /// <summary>
+        /// Instantiate.
+        /// </summary>
+        public JsonInputSerialization()
+        {
+
+        }
+
+        #endregion
+
+        #region Public-Methods
+
+        #endregion
+
+        #region Private-Methods
+
+        #endregion
+    }
+}

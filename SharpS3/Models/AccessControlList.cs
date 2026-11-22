@@ -1,0 +1,55 @@
+namespace SharpS3.Models
+{
+    using System.Collections.Generic;
+    using System.Xml.Serialization;
+
+    /// <summary>
+    /// Amazon S3 access control list for a resource.
+    /// </summary>
+    [XmlRoot(ElementName = "AccessControlList")]
+    public class AccessControlList
+    {
+        #region Public-Members
+
+        /// <summary>
+        /// Grant specifying to whom rights are provided to the resource.
+        /// </summary>
+        [XmlElement(ElementName = "Grant", IsNullable = true)]
+        public List<Grant> Grants { get; set; } = new List<Grant>();
+
+        #endregion
+
+        #region Private-Members
+
+        #endregion
+
+        #region Constructors-and-Factories
+
+        /// <summary>
+        /// Instantiate.
+        /// </summary>
+        public AccessControlList()
+        {
+
+        }
+
+        /// <summary>
+        /// Instantiate.
+        /// </summary>
+        /// <param name="grants">Grants.</param>
+        public AccessControlList(List<Grant> grants)
+        {
+            if (grants != null) Grants = grants;
+        }
+
+        #endregion
+
+        #region Public-Methods
+
+        #endregion
+
+        #region Private-Methods
+
+        #endregion
+    }
+}

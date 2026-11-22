@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Project Path="SharpS3/SharpS3.csproj" />
+  <Project Path="SharpS3.Generators/SharpS3.Generators.csproj" />
+  <Project Path="SharpS3.Generators.Tests.Unit/SharpS3.Generators.Tests.Unit.csproj" />
+  <Project Path="SharpS3.Tests.Unit/SharpS3.Tests.Unit.csproj" />
+  <Project Path="SharpS3.Tests.Integration/SharpS3.Tests.Integration.csproj" />
+</Solution>

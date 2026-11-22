@@ -1,0 +1,48 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../SharpS3",
+          "files": [
+            "*.csproj"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**",
+          "filterConfig.yml"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "LICENSE"
+        ],
+        "src": ".."
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appTitle": "SharpS3",
+      "_appFooter": "© Copyright Daniel Klecha",
+      "_enableSearch": true,
+      "pdf": true,
+      "_disableContribution": true
+    }
+  }
+}

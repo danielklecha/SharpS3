@@ -1,0 +1,46 @@
+namespace SharpS3.Models
+{
+    using System;
+    using System.Xml.Serialization;
+
+    /// <summary>
+    /// JSON output serialization.
+    /// </summary>
+    [XmlRoot(ElementName = "JSON")]
+    public class JsonOutputSerialization
+    {
+        #region Public-Members
+
+        /// <summary>
+        /// Record delimiter.
+        /// </summary>
+        [XmlElement(ElementName = "RecordDelimiter", IsNullable = true)]
+        public string RecordDelimiter { get; set; } = null!;
+
+        #endregion
+
+        #region Private-Members
+
+        #endregion
+
+        #region Constructors-and-Factories
+
+        /// <summary>
+        /// Instantiate.
+        /// </summary>
+        public JsonOutputSerialization()
+        {
+
+        }
+
+        #endregion
+
+        #region Public-Methods
+
+        #endregion
+
+        #region Private-Methods
+
+        #endregion
+    }
+}
